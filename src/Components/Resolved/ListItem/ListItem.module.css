@@ -1,0 +1,10 @@
+.listImg {
+  transform: scale(1);
+}
+
+.listImg:hover,
+.listImg:focus {
+  /* outline: 1px solid black; */
+  transform: scale(1.2);
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}

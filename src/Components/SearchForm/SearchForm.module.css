@@ -1,0 +1,53 @@
+.header {
+    /* height: 50px; */
+    background-color: dodgerblue;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.form {
+    width: 200px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.label {
+    position: relative;
+    }
+
+.icon {
+    /* position: absolute; */
+    width: 18px;
+    height: 18px;
+    fill: black;
+    /* transform: translateY(-50%); */
+}
+
+.input {
+    margin: 0 auto;
+    padding-left: 25px;
+
+    height: 20px;
+    border-radius: 4px;
+    }
+
+.button {
+    position: absolute;
+    /* left: 2px; */
+    top: 1px;
+
+    padding: 2;
+    background-color: transparent;
+    border: none;
+}
+
+.button:hover,
+.button:focus {
+    outline: none;
+}
+
+.button:hover .icon,
+.button:focus .icon{
+outline: none;
+    fill: dodgerblue ;
+}

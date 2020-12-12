@@ -1,0 +1,20 @@
+.btn {
+    display: block;
+    max-width: 150px;
+    margin: 25px auto; 
+    background-color: dodgerblue;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+
+    transition: color .3s cubic-bezier(0.075, 0.82, 0.165, 1) ;
+    transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn:focus, 
+.btn:hover{
+    outline: none;
+color: black;
+background-color: darkorange;
+}
