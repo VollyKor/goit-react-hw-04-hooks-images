@@ -39,6 +39,19 @@
 
 .container {
   width: 1150px;
-padding: 0 25px;
-margin: 0 auto;
+  padding: 0 25px;
+  margin: 0 auto;
+}
+
+.relative {
+  position: relative;
+}
+.wrapper {
+  /* position: relative; */
+  min-height: 100%;
+  border: 3px solid dodgerblue;
+  border-top: none;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding-top: 15px;
 }

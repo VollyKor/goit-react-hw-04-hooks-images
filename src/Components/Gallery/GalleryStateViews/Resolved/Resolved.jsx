@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import s from './Resolved.module.css';
-import request from '../../service/request';
+import request from '../../../../service/request';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
-import windowScroll from '../../service/windowScroll';
-import Modal from '../Modal/Modal';
+import windowScroll from '../../../../service/windowScroll';
+import Modal from '../../../Modal/Modal';
 import ListItem from './ListItem/ListItem';
-import ModalImg from '../Modal/ModalImg/ModalImg';
+import ModalImg from '../../../Modal/ModalImg/ModalImg';
 
 export default class Resolved extends Component {
   state = {
@@ -58,7 +58,7 @@ export default class Resolved extends Component {
 
     if (data.length > 0) {
       return (
-        <>
+        <div className="wrapper">
           <ul className={s.list}>
             {data.map(el => {
               const { webformatURL, id, tags } = el;
@@ -84,7 +84,7 @@ export default class Resolved extends Component {
               />
             </Modal>
           )}
-        </>
+        </div>
       );
     }
   }

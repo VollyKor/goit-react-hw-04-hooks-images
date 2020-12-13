@@ -1,9 +1,9 @@
 import s from './ListItem.module.css';
 export default function ListItem({ id, webformatURL, tags, onClick }) {
   return (
-    <li onClick={() => onClick(id)}>
+    <li className={s.item} onClick={() => onClick(id)}>
       <img
-        className={s.listImg}
+        className={s.img}
         data-id={id}
         src={webformatURL}
         alt={tags}

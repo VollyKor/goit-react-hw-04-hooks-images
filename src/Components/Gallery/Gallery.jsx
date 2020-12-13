@@ -1,10 +1,9 @@
-// import s from './Gallery.module.css';
 import { Component } from 'react';
 import request from '../../service/request';
-import Idle from '../Idle/Idle';
-import Pending from '../Pending/Pending';
-import Resolved from '../Resolved/Resolved';
-import Rejected from '../Rejected/Rejected';
+import Idle from './GalleryStateViews/Idle/Idle';
+import Pending from './GalleryStateViews/Pending/Pending';
+import Resolved from './GalleryStateViews/Resolved/Resolved';
+import Rejected from './GalleryStateViews/Rejected/Rejected';
 // idle , pending, resolved, rejected
 
 export default class Gallery extends Component {

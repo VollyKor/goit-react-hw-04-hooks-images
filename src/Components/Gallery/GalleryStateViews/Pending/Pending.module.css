@@ -1,0 +1,24 @@
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.title {
+    font-size: 32px;
+    text-align: center;
+}
+
+.icon {
+    display: block;
+
+    margin: 0 auto;
+
+    animation-name: spinner;
+    animation-duration: 5s;
+}
