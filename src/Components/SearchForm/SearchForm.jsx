@@ -19,15 +19,7 @@ export default class SearchForm extends Component {
     const { setQuery, setStatus, status } = this.props;
     e.preventDefault();
 
-    // console.log('this.props.query', this.props.currentQuery);
-    // console.log('this.state.searchQuery', this.state.searchQuery);
-    // if (currentQuery !== searchQuery) {
-    //   setStatus('pending');
-    //   getQuery(searchQuery);
-    // }
-    // if (searchQuery.length < 3){}
-
-    if (status() === 'pending') {
+    if (status === 'pending') {
       return;
     }
 
