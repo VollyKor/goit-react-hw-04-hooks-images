@@ -1,36 +1,33 @@
-import { Component } from 'react';
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import s from './Modal.module.css';
 const modalRoot = document.querySelector('#modal-root');
 
-export default class Modal extends Component {
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleEscape);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleEscape);
-  }
+export default function Modal({ children, onClose }) {
+  useEffect(() => {
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  handleEscape = e => {
-    // const { onClose } = this.props;
-    console.log('this.props ', this.props);
+  function handleEscape(e) {
     if (e.code === 'Escape') {
-      this.props.onClose();
+      onClose();
     }
-  };
-
-  handleClick = ({ target, currentTarget }) => {
-    if (target === currentTarget) {
-      this.props.onClose();
-    }
-  };
-
-  render() {
-    return createPortal(
-      <div className={s.backdrop} onClick={this.handleClick}>
-        <div className={s.content}>{this.props.children}</div>
-      </div>,
-      modalRoot,
-    );
   }
+
+  const handleClick = ({ target, currentTarget }) => {
+    if (target === currentTarget) {
+      onClose();
+    }
+  };
+
+  return createPortal(
+    <div className={s.backdrop} onClick={handleClick}>
+      <div className={s.content}>{children}</div>
+    </div>,
+    modalRoot,
+  );
 }

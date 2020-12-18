@@ -1,22 +1,16 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { BsSearch as Icon } from 'react-icons/bs';
 import s from './SearchForm.module.css';
 
-export default class SearchForm extends Component {
-  state = {
-    searchQuery: '',
-    submitQuery: '',
-  };
+export default function SearchForm({ setQuery, setStatus, status }) {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [submitQuery, setSubmitQuery] = useState('');
 
-  handleChange(e) {
-    this.setState({
-      searchQuery: e.target.value,
-    });
+  function handleChange({ target: { value } }) {
+    setSearchQuery(value);
   }
 
-  handleSubmit = e => {
-    const { searchQuery, submitQuery } = this.state;
-    const { setQuery, setStatus, status } = this.props;
+  function handleSubmit(e) {
     e.preventDefault();
 
     if (status === 'pending') {
@@ -24,28 +18,26 @@ export default class SearchForm extends Component {
     }
 
     if (searchQuery !== submitQuery) {
-      this.setState({ submitQuery: this.state.searchQuery });
+      setSubmitQuery(searchQuery);
       setQuery(searchQuery);
       setStatus('pending');
     }
-  };
-
-  render() {
-    return (
-      <header className={`container ${s.header}`}>
-        <form className={s.form} onSubmit={this.handleSubmit}>
-          <label className={s.label}>
-            <button className={s.button} type="submit">
-              <Icon aria-label="Search Icom" className={s.icon} />
-            </button>
-            <input
-              type="text"
-              className={s.input}
-              onChange={e => this.handleChange(e)}
-            />
-          </label>
-        </form>
-      </header>
-    );
   }
+
+  return (
+    <header className={`container ${s.header}`}>
+      <form className={s.form} onSubmit={handleSubmit}>
+        <label className={s.label}>
+          <button className={s.button} type="submit">
+            <Icon aria-label="Search Icom" className={s.icon} />
+          </button>
+          <input
+            type="text"
+            className={s.input}
+            onChange={e => handleChange(e)}
+          />
+        </label>
+      </form>
+    </header>
+  );
 }
